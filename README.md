@@ -77,14 +77,16 @@ Ogni query viene effettuata per mezzo del framework Mongoose utilizzando il meto
 ### App Mobile
 Premendo il tasto Cerca viene inviata l'attuale posizione in base alla quale il web service provvederà a richiedere i dati al DB e ad inviarli in formato JSON al client, che li visualizzerà. Cliccando su ogni nome l'app porterà l'utente ad una nuova pagina Profilo, dove sarà possibile avere maggiori informazioni e contatti.
 
-<p align="center">[[https://github.com/elpanas/CoachAtHomeApp/tree/master/images/01.png|height=400px]]</p>
+<p align="center">[[https://github.com/elpanas/CoachAtHomeApp/blob/master/images/01.png|height=400px]]</p>
 
 Cliccando sui contatti e sulle icone dei relativi social (ove presenti), l'utente viene indirizzato automaticamente all'app corrispondente.
 Inoltre è possibile aggiungere l'allenatore ad una lista preferiti, cliccando sul pulsante con il cuore. I dati essenziali verranno inseriti un un database locale, sempre NoSQL, chiamato Sembast che corrisponde ad un semplice file memorizzato nello smartphone.
 
-IMMAGINE2
+<p align="center">[[https://github.com/elpanas/CoachAtHomeApp/blob/master/images/03.png|height=400px]]</p>
 
 Se a visualizzare la pagina profilo è lo stesso allenatore, al posto del cuore appare un'icona con la matita. Cliccandola si viene reindirizzati alla pagina di modifica, in cui alcuni campi potrebbero essere già riempiti con i dati presenti nel database remoto.
+
+<p align="center">[[https://github.com/elpanas/CoachAtHomeApp/blob/master/images/04.png|height=400px]]</p>
 
 Vediamo alcuni metodi significativi per le richieste remote.
 
