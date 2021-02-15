@@ -131,20 +131,21 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       ],
                     ),
                     Container(height: 20),
-                    TextFormField(
-                      controller: cityController,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        icon: Icon(Icons.location_city),
-                        hintText: 'Comune',
-                        hintStyle: TextStyle(fontSize: 18),
-                      ),
-                      validator: (value) {
-                        if (value.isEmpty) return 'Inserire un valore';
+                    if (!login)
+                      TextFormField(
+                        controller: cityController,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          icon: Icon(Icons.location_city),
+                          hintText: 'Comune',
+                          hintStyle: TextStyle(fontSize: 18),
+                        ),
+                        validator: (value) {
+                          if (value.isEmpty) return 'Inserire un valore';
 
-                        return null;
-                      },
-                    ),
+                          return null;
+                        },
+                      ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 16.0),
                       child: RaisedButton(

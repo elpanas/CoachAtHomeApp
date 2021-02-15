@@ -51,44 +51,41 @@ class _ProfileState extends State<Profile> {
           appBar: AppBar(
             title: Text('Profilo'),
             actions: [
-              (_isreg)
-                  ? Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: GestureDetector(
-                        child: Icon(Icons.edit),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      ModProfile(profile))).then(
-                              (result) => {if (result != null) loadProfile()});
-                        },
-                      ))
-                  : Container()
+              /*(_isreg)
+                  ? */
+              Padding(
+                  padding: EdgeInsets.only(right: 20),
+                  child: GestureDetector(
+                    child: Icon(Icons.edit),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ModProfile(profile))).then(
+                          (result) => {if (result != null) loadProfile()});
+                    },
+                  ))
+              //: Container()
             ],
           ),
-          floatingActionButton: (!_isreg)
-              ? FloatingActionButton(
-                  child: (fav)
-                      ? Icon(Icons.favorite)
-                      : Icon(Icons.favorite_border),
-                  onPressed: () {
-                    addToFavs();
-                  },
-                )
-              : null,
+          floatingActionButton: /*(!_isreg)
+              ? */
+              FloatingActionButton(
+            child: (fav) ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
+            onPressed: () {
+              addToFavs();
+            },
+          ),
+          //: null,
           body: SingleChildScrollView(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
+              children: <Widget>[
                 if (!_showProgress)
                   AspectRatio(
                       aspectRatio: 3 / 1,
                       child: Container(
                         color: Colors.orange,
                         child: Column(
-                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -97,7 +94,6 @@ class _ProfileState extends State<Profile> {
                           ],
                         ),
                       )),
-                if (_showProgress) _buildLoader(),
                 if (!_showProgress)
                   if (profile.phone != '')
                     ListTile(

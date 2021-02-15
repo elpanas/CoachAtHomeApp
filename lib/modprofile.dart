@@ -116,7 +116,8 @@ class _ModProfileState extends State<ModProfile> {
                           decoration: InputDecoration(
                             icon: Icon(Icons.phone),
                             hintText: 'Telefono',
-                            hintStyle: TextStyle(fontSize: 18),
+                            hintStyle:
+                                TextStyle(fontSize: 18, color: Colors.grey),
                           ),
                         )),
                         //Container(height: 25),
@@ -136,7 +137,7 @@ class _ModProfileState extends State<ModProfile> {
                       keyboardType: TextInputType.multiline,
                       decoration: InputDecoration(
                         hintText: 'Qualcosa di te...',
-                        hintStyle: TextStyle(fontSize: 18),
+                        hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
                       ),
                     ),
                     TextFormField(
@@ -145,7 +146,7 @@ class _ModProfileState extends State<ModProfile> {
                       decoration: InputDecoration(
                         icon: Icon(Icons.mail),
                         hintText: 'E-mail',
-                        hintStyle: TextStyle(fontSize: 18),
+                        hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
                       ),
                     ),
                     TextFormField(
@@ -154,7 +155,7 @@ class _ModProfileState extends State<ModProfile> {
                       decoration: InputDecoration(
                         icon: Icon(MdiIcons.facebook),
                         hintText: 'Facebook',
-                        hintStyle: TextStyle(fontSize: 18),
+                        hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
                       ),
                     ),
                     TextFormField(
@@ -163,7 +164,7 @@ class _ModProfileState extends State<ModProfile> {
                       decoration: InputDecoration(
                         icon: Icon(MdiIcons.instagram),
                         hintText: 'Instagram',
-                        hintStyle: TextStyle(fontSize: 18),
+                        hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
                       ),
                     ),
                     TextFormField(
@@ -172,7 +173,7 @@ class _ModProfileState extends State<ModProfile> {
                       decoration: InputDecoration(
                         icon: Icon(MdiIcons.linkedin),
                         hintText: 'LinkedIn',
-                        hintStyle: TextStyle(fontSize: 18),
+                        hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
                       ),
                     ),
                     TextFormField(
@@ -181,7 +182,7 @@ class _ModProfileState extends State<ModProfile> {
                       decoration: InputDecoration(
                         icon: Icon(MdiIcons.web),
                         hintText: 'Il tuo sito/blog',
-                        hintStyle: TextStyle(fontSize: 18),
+                        hintStyle: TextStyle(fontSize: 18, color: Colors.grey),
                       ),
                     ),
                   ],
