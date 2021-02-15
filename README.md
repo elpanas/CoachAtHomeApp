@@ -164,7 +164,7 @@ http.get(url + 'coach' + '/latitude/' + latitude + '/longitude/' + longitude)
 
 *Flutter E-mail sender:* apre l'app per le mail predefinita e crea un nuovo messaggio con l'email fornita (Profilo)
 
-*Social Media Buttons:* aggiungono le icone dei social e permettono di aprire le rispettive app al click. (Profilo)
+*Social Media Buttons:* permettono di aprire le rispettive app al click sulla relativa icona. (Profilo)
 
 *Material Design Icons Flutter:* fornisce icone aggiuntive mancanti, ad esempio quelle dei social. (Profilo)
 
