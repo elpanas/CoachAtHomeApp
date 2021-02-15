@@ -153,6 +153,24 @@ Richiede la lista allenatori in base alla posizione
 http.get(url + 'coach' + '/latitude/' + latitude + '/longitude/' + longitude)
 </pre>
 
+#### Pacchetti
+*Geolocator:* restituisce informazioni riguardanti la posizione dell'utente. In particolare vengono utilizzate le coordinate latitudine e longitudine (Lista istruttori)
+
+*Flutter Secure Storage:* memorizza i dati in aree di memoria criptate dello smartphone. In questo caso sono stati memorizzati username, password e l'id dell'utente se registrato.
+
+*Flutter Phone Direct Caller:* permette di effettuare una chiamata il dialer dello smartphone (Profilo)
+
+*URL Launcher:* apre il link con il browser dello smartphone (Profilo)
+
+*Flutter E-mail sender:* apre l'app per le mail predefinita e crea un nuovo messaggio con l'email fornita (Profilo)
+
+*Social Media Buttons:* aggiungono le icone dei social e permettono di aprire le rispettive app al click. (Profilo)
+
+*Material Design Icons Flutter:* fornisce icone aggiuntive mancanti, ad esempio quelle dei social. (Profilo)
+
+*Sembast:* database NoSQL locale. Vengono memorizzati/letti i preferiti (Profilo, Preferiti)
+
+*Path Provider:* fornisce il percorso predefinito di alcune cartelle dello smartphone, ad esempio Documenti, Download. In questo caso è stato utilizzato per avere il percorso della cartella in cui memorizzare il file del db Sembast.
 
 #### Sicurezza
 Le richieste HTTP avvengono tutte (POST, GET, PUT) con protocollo https.
