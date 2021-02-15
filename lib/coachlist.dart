@@ -47,7 +47,7 @@ class _CoachesListState extends State<CoachesList> {
                   bottom: 12.0,
                   child: Text('Ciao ',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 24,
                       ))),
             ]),
@@ -145,7 +145,6 @@ class _CoachesListState extends State<CoachesList> {
       setState(() => {_showProgress = false, _message = "Non ho trovato PT"});
       return null;
     });
-    print(res.statusCode);
     if (res != null) {
       if (res.statusCode == HttpStatus.ok) {
         final resJson = jsonDecode(res.body);
