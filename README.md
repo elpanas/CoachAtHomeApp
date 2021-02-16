@@ -74,7 +74,7 @@ router.put('/', (req, res) => updateCoach())
 ### Query al DB remoto
 Ogni query viene effettuata per mezzo del framework Mongoose utilizzando il metodo .lean() al termine delle pipeline, in modo da ottenere degli oggetti semplici e leggeri, da inviare poi tramite Node.js Express al client.
 
-### App Mobile
+## App Mobile - Esperienza utente (UX)
 Premendo il tasto Cerca viene inviata l'attuale posizione in base alla quale il web service provvederà a richiedere i dati al DB e ad inviarli in formato JSON al client, che li visualizzerà. Cliccando su ogni nome l'app porterà l'utente ad una nuova pagina Profilo, dove sarà possibile avere maggiori informazioni e contatti.
 
 ![lista](https://github.com/elpanas/CoachAtHomeApp/blob/master/images/lista.png)
@@ -88,9 +88,7 @@ Se a visualizzare la pagina profilo è lo stesso allenatore, al posto del cuore 
 
 ![modifica](https://github.com/elpanas/CoachAtHomeApp/blob/master/images/modifica.png)
 
-Vediamo alcuni metodi significativi per le richieste remote.
-
-Invia i dati di un nuovo allenatore:
+### Tecnologia
 
 <pre>
 http.post(
@@ -153,7 +151,7 @@ Richiede la lista allenatori in base alla posizione
 http.get(url + 'coach' + '/latitude/' + latitude + '/longitude/' + longitude)
 </pre>
 
-#### Pacchetti
+### Pacchetti
 *Geolocator:* restituisce informazioni riguardanti la posizione dell'utente. In particolare vengono utilizzate le coordinate latitudine e longitudine (Lista istruttori)
 
 *Flutter Secure Storage:* memorizza i dati in aree di memoria criptate dello smartphone. In questo caso sono stati memorizzati username, password e l'id dell'utente se registrato.
@@ -172,7 +170,7 @@ http.get(url + 'coach' + '/latitude/' + latitude + '/longitude/' + longitude)
 
 *Path Provider:* fornisce il percorso predefinito di alcune cartelle dello smartphone, ad esempio Documenti, Download. In questo caso è stato utilizzato per avere il percorso della cartella in cui memorizzare il file del db Sembast.
 
-#### Sicurezza
+### Sicurezza
 Le richieste HTTP avvengono tutte (POST, GET, PUT) con protocollo https.
 
 E' utilizzata un'autenticazione base per evitare richieste put indesiderate all'API
