@@ -43,6 +43,10 @@ L'app invia la propria posizione in modo semi-silente al webservice e riceve la 
 - #### Lista Preferiti
 Dal menu laterale (Drawer) l'utente accede ad una lista preferiti o al proprio profilo se è registrato.
 
+## Casi d'uso
+- Utente non registrato: può accedere alla ricerca, ai preferiti (visualizzazione/modifica/cancellazione) e ai profili (visualizzazione).
+- Utente registrato: può accedere alle stesse funzioni dell'utente non registrato, più la possibilità di effettuare il login, logout e modificare il proprio profilo.
+
 ## Dettagli tecnici
 L'API basa il suo funzionamento sull'interscambio di dati tra client e server per mezzo di richieste HTTP così formate:
 
