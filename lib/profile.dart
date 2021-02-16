@@ -212,17 +212,6 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget _buildLoader() {
-    return Expanded(
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height / 1.3,
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
-    );
-  }
-
   void _callNumber(number) async {
     await FlutterPhoneDirectCaller.callNumber(number);
   }
