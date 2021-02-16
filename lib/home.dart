@@ -1,6 +1,4 @@
-//import 'package:coachapp/coachlist.dart';
 import 'package:coachapp/coachlist.dart';
-import 'package:coachapp/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:coachapp/registration.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -13,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.orange,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: Scaffold(body: HomePage()),
+      home: HomePage(),
     );
   }
 }
@@ -29,73 +27,96 @@ class _HomePageState extends State<HomePage> {
   String myID = '';
 
   @override
+  void initState() {
+    checkPin();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              /*Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Image(image: AssetImage('assets/images/title.png')),
-                  ),*/
-              FlatButton(
-                minWidth: size.width / 1.2,
-                color: Colors.orange,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => CoachesList()));
-                },
-                child: Text(
-                  'Cerca',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-              FlatButton(
-                minWidth: size.width / 1.2,
-                color: Colors.black87,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                onPressed: () {
-                  if (_isreg)
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => Profile(myID)));
-                  else
-                    Navigator.push(
+    return Scaffold(
+      body: Container(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                /*Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Image(image: AssetImage('assets/images/title.png')),
+                      ),*/
+                FlatButton(
+                  minWidth: size.width / 1.2,
+                  color: Colors.orange,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(
-                            builder: (_) => RegistrationPage(true)));
-                },
-                child: Text(
-                  'Entra',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                        MaterialPageRoute(builder: (_) => CoachesList()),
+                        (Route<dynamic> route) => false);
+                  },
+                  child: Text(
+                    'Cerca',
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  ),
                 ),
-              ),
-              FlatButton(
-                minWidth: size.width / 1.2,
-                color: Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => RegistrationPage(false)));
-                },
-                child: Text(
-                  'Registrazione',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ],
+                if (!_isreg)
+                  FlatButton(
+                    minWidth: size.width / 1.2,
+                    color: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => RegistrationPage(true)));
+                    },
+                    child: Text(
+                      'Entra',
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    ),
+                  ),
+                if (!_isreg)
+                  FlatButton(
+                    minWidth: size.width / 1.2,
+                    color: Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => RegistrationPage(false)));
+                    },
+                    child: Text(
+                      'Registrazione',
+                      style: TextStyle(color: Colors.black, fontSize: 20),
+                    ),
+                  ),
+                if (_isreg)
+                  FlatButton(
+                    minWidth: size.width / 1.2,
+                    color: Colors.red,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    onPressed: () {
+                      _makeLogout();
+                    },
+                    child: Text(
+                      'Esci',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       ),
@@ -104,10 +125,15 @@ class _HomePageState extends State<HomePage> {
 
   void checkPin() async {
     try {
-      await storage.read(key: 'pin').then((value) => _isreg = (value != null));
       myID = await storage.read(key: 'id');
+      if (await storage.read(key: 'pin') != null) setState(() => _isreg = true);
     } catch (_) {
       // ...
     }
+  }
+
+  void _makeLogout() async {
+    await storage.deleteAll();
+    setState(() => _isreg = false);
   }
 }

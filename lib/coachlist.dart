@@ -63,7 +63,12 @@ class _CoachesListState extends State<CoachesList> {
               leading: Icon(Icons.favorite),
               title: Text('Preferiti'),
               onTap: () => Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => Favourites())))
+                  context, MaterialPageRoute(builder: (_) => Favourites()))),
+          if (isreg)
+            ListTile(
+                leading: Icon(Icons.logout),
+                title: Text('Esci'),
+                onTap: () => _makeLogout()),
         ])),
         appBar: AppBar(title: Text('PT nella tua zona')),
         body: Column(
@@ -129,7 +134,7 @@ class _CoachesListState extends State<CoachesList> {
       myID = await storage.read(key: 'id');
       username = await storage.read(key: 'username');
     } catch (_) {
-      isreg = false;
+      // ...
     }
   }
 
@@ -141,7 +146,7 @@ class _CoachesListState extends State<CoachesList> {
     final params = '/latitude/' + latitude + '/longitude/' + longitude;
     final res = await http
         .get(url + 'coach' + params)
-        .timeout(Duration(seconds: 2), onTimeout: () {
+        .timeout(Duration(seconds: 5), onTimeout: () {
       setState(() => {_showProgress = false, _message = "Non ho trovato PT"});
       return null;
     });
@@ -162,5 +167,10 @@ class _CoachesListState extends State<CoachesList> {
           coaches.where((element) => element.name.startsWith(search)).toList());
     else
       loadCoaches();
+  }
+
+  void _makeLogout() async {
+    await storage.deleteAll();
+    setState(() => isreg = false);
   }
 }

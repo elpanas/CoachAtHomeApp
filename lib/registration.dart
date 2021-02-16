@@ -26,7 +26,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final TextEditingController cityController = TextEditingController();
   final storage = FlutterSecureStorage();
   String pin = '';
-  String _title = 'Log In';
+  String _title = 'Entra';
 
   _RegistrationPageState(this.login);
 
@@ -151,7 +151,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       child: RaisedButton(
                         child: Text(
                           'Invia',
-                          style: TextStyle(color: Colors.white, fontSize: 19),
+                          style: TextStyle(color: Colors.black, fontSize: 19),
                         ),
                         color: Colors.orange,
                         onPressed: () {
@@ -165,11 +165,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   .then((res) {
                                 if (res.statusCode == HttpStatus.ok)
                                   setVars(res).then((_) =>
-                                      Navigator.pushReplacement(
+                                      Navigator.pushAndRemoveUntil(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  CoachesList())));
+                                                  CoachesList()),
+                                          (Route<dynamic> route) => false));
                                 else
                                   _buildError(context);
                               });
@@ -178,11 +179,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   .then((res) {
                                 if (res.statusCode == HttpStatus.ok)
                                   setVars(res).then((_) =>
-                                      Navigator.pushReplacement(
+                                      Navigator.pushAndRemoveUntil(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  CoachesList())));
+                                                  CoachesList()),
+                                          (Route<dynamic> route) => false));
                                 else
                                   _buildError(context);
                               });
