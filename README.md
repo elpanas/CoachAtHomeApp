@@ -47,37 +47,6 @@ Dal menu laterale (Drawer) l'utente accede ad una lista preferiti o al proprio p
 - Utente non registrato: può accedere alla ricerca, ai preferiti (visualizzazione/modifica/cancellazione) e ai profili (visualizzazione).
 - Utente registrato: può accedere alle stesse funzioni dell'utente non registrato, più la possibilità di effettuare il login, logout e modificare il proprio profilo.
 
-## Dettagli tecnici
-L'API basa il suo funzionamento sull'interscambio di dati tra client e server per mezzo di richieste HTTP così formate:
-
-### HTTP Requests client/server
-Le richieste HTTP tra il client e il web service sono di tipo POST, GET e PUT.
-
-Sia quelle in input che output trasportano dati in formato JSON, preventivamente (de)codificati per mezzo dell'apposita funzione <code>jsonEncode/Decode()</code> fornita dal framework Node.js sul server e Flutter sul client.
-
-I dati all'interno dei file JSON, sono costituiti da voci di menu, informazioni sulla posizione e password.
-
-Si è scelto di utilizzare il linguaggio Node.js data la natura testuale delle informazioni scambiate.
-Framework e Addons utilizzati:
-
-- **Express:** semplifica la gestione degli endpoint e dei request/response
-- **Mongoose:** semplifica le query al DB
-- **Bcrypt:** crea l'hash delle password
-- **Dotenv:** accede alle variabili d'ambiente
-
-Endpoints e metodi:
-
-<pre>
-router.post('/', (req, res) => createCoach())
-router.get('/latitude/:lat/longitude/:long', (req, res) => getCoaches())
-router.get('/id/:id', (req, res) => getCoach())
-router.get('/login', (req, res) => checkLogin())
-router.put('/', (req, res) => updateCoach())
-</pre>
-
-### Query al DB remoto
-Ogni query viene effettuata per mezzo del framework Mongoose utilizzando il metodo .lean() al termine delle pipeline, in modo da ottenere degli oggetti semplici e leggeri, da inviare poi tramite Node.js Express al client.
-
 ## App Mobile - Esperienza utente (UX)
 Premendo il tasto Cerca viene inviata l'attuale posizione in base alla quale il web service provvederà a richiedere i dati al DB e ad inviarli in formato JSON al client, che li visualizzerà. Cliccando su ogni nome l'app porterà l'utente ad una nuova pagina Profilo, dove sarà possibile avere maggiori informazioni e contatti.
 
@@ -173,6 +142,37 @@ http.get(url + 'coach' + '/latitude/' + latitude + '/longitude/' + longitude)
 *Sembast:* database NoSQL locale. Vengono memorizzati/letti i preferiti (Profilo, Preferiti)
 
 *Path Provider:* fornisce il percorso predefinito di alcune cartelle dello smartphone, ad esempio Documenti, Download. In questo caso è stato utilizzato per avere il percorso della cartella in cui memorizzare il file del db Sembast.
+
+## Web Service
+L'API basa il suo funzionamento sull'interscambio di dati tra client e server per mezzo di richieste HTTP così formate:
+
+### HTTP Requests client/server
+Le richieste HTTP tra il client e il web service sono di tipo POST, GET e PUT.
+
+Sia quelle in input che output trasportano dati in formato JSON, preventivamente (de)codificati per mezzo dell'apposita funzione <code>jsonEncode/Decode()</code> fornita dal framework Node.js sul server e Flutter sul client.
+
+I dati all'interno dei file JSON, sono costituiti da voci di menu, informazioni sulla posizione e password.
+
+Si è scelto di utilizzare il linguaggio Node.js data la natura testuale delle informazioni scambiate.
+Framework e Addons utilizzati:
+
+- **Express:** semplifica la gestione degli endpoint e dei request/response
+- **Mongoose:** semplifica le query al DB
+- **Bcrypt:** crea l'hash delle password
+- **Dotenv:** accede alle variabili d'ambiente
+
+Endpoints e metodi:
+
+<pre>
+router.post('/', (req, res) => createCoach())
+router.get('/latitude/:lat/longitude/:long', (req, res) => getCoaches())
+router.get('/id/:id', (req, res) => getCoach())
+router.get('/login', (req, res) => checkLogin())
+router.put('/', (req, res) => updateCoach())
+</pre>
+
+### Query al DB remoto
+Ogni query viene effettuata per mezzo del framework Mongoose utilizzando il metodo .lean() al termine delle pipeline, in modo da ottenere degli oggetti semplici e leggeri, da inviare poi tramite Node.js Express al client.
 
 ### Sicurezza
 Le richieste HTTP avvengono tutte (POST, GET, PUT) con protocollo https.
