@@ -91,7 +91,7 @@ class _ProfileState extends State<Profile> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             _buildName(profile.name),
-                            _buildBio('Segni particolari: bellissimo')
+                            _buildBio(profile.bio)
                           ],
                         ),
                       )),
