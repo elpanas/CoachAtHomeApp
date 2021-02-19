@@ -33,6 +33,7 @@ dependencies:
   material_design_icons_flutter: 4.0.5855
   sembast: ^2.4.9
   path_provider: ^1.6.27
+  flutter_launcher_icons: ^0.8.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -42,6 +43,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  image_path: 'assets/icon/icon.png'
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
