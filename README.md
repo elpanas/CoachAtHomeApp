@@ -48,14 +48,18 @@ Dal menu laterale (Drawer) l'utente accede ad una lista preferiti o al proprio p
 - Utente registrato: può accedere alle stesse funzioni dell'utente non registrato, più la possibilità di effettuare il login, logout e modificare il proprio profilo.
 
 ## App Mobile - Esperienza utente (UX)
-Premendo il tasto Cerca viene inviata l'attuale posizione in base alla quale il web service provvederà a richiedere i dati al DB e ad inviarli in formato JSON al client, che li visualizzerà. Cliccando su ogni nome l'app porterà l'utente ad una nuova pagina Profilo, dove sarà possibile avere maggiori informazioni e contatti.
+Premendo il tasto Cerca viene inviata l'attuale posizione in base alla quale il web service provvederà a richiedere i dati al DB e ad inviarli in formato JSON al client, che li visualizzerà.
 
 ![lista](https://github.com/elpanas/CoachAtHomeApp/blob/master/images/lista.png)
+
+Cliccando su ogni nome l'app porterà l'utente ad una nuova pagina Profilo, dove sarà possibile avere maggiori informazioni e contatti.
+
+![profilo](https://github.com/elpanas/CoachAtHomeApp/blob/master/images/profilo.png)
 
 Cliccando sui contatti e sulle icone dei relativi social (ove presenti), l'utente viene indirizzato automaticamente all'app corrispondente.
 Inoltre è possibile aggiungere l'allenatore ad una lista preferiti, cliccando sul pulsante con il cuore. I dati essenziali verranno inseriti un un database locale, sempre NoSQL, chiamato Sembast che corrisponde ad un semplice file memorizzato nello smartphone.
 
-![profilo](https://github.com/elpanas/CoachAtHomeApp/blob/master/images/profilo.png)
+![preferiti](https://github.com/elpanas/CoachAtHomeApp/blob/master/images/preferiti.png)
 
 Se a visualizzare la pagina profilo è lo stesso allenatore, al posto del cuore appare un'icona con la matita. Cliccandola si viene reindirizzati alla pagina di modifica, in cui alcuni campi potrebbero essere già riempiti con i dati presenti nel database remoto.
 
