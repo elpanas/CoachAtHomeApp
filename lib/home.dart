@@ -43,10 +43,6 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                /*Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Image(image: AssetImage('assets/images/title.png')),
-                      ),*/
                 FlatButton(
                   minWidth: size.width / 1.2,
                   color: Colors.orange,
