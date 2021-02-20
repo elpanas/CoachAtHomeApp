@@ -1,5 +1,5 @@
 # Coach@Home
-
+![Logo](https://github.com/elpanas/CoachAtHomeApp/blob/master/images/logo.png)
 ## Sviluppatore
 
 **Nome:** Luca 
